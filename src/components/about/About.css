@@ -1,0 +1,10 @@
+.about {
+    padding: 60px;
+}
+
+.about-content {
+    padding: 60px;
+    border: solid 1px black;
+    margin: 20px;
+    box-shadow: 5px 10px #888888;
+}

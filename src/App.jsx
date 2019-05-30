@@ -1,39 +1,38 @@
 import React, {Component} from 'react';
 import './App.css';
-import ArticleList from './components/articleList/ArtilcleList';
+import ArticleList from './components/articleList/ArticleList';
 import About from './components/about/About'
 import Glossaire from './components/glossaire/Glossaire'
 import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import axios from 'axios';
 
 
-const articles = [
-  { id: 1, titre: "Leanne Graham", resume: "Pouet pouet", auteur: "meee" },
-  { id: 2, titre: "Ervin Howell", resume: "tata", auteur: "mo" },
-  { id: 3, titre: "Clementine Bauch", resume: "toto", auteur: "mu" },
-  { id: 4, titre: "Patricia Lebsack", resume: "tutu", auteur: "ma" }
-];
 
 class App extends Component {
 
   state = {
-    contacts: []
+    articles: []
   };
 
   componentDidMount() {
     axios
-      .get("https://jsonplaceholder.typicode.com/users")
+      .get("http://localhost:9001/api/Articles/All")
       .then(response => {
-        const newContacts = response.data.map(c => {
+        const newArticles = response.data.map(c => {
           return {
             id: c.id,
-            name: c.name
+            auteur: c.auteur,
+            titre: c.titre,
+            description: c.description,
+            texte: c.texte,
+            dateEcriture: c.dateEcriture,
           };
         });
 
         const newState = Object.assign({}, this.state, {
-          contacts: newContacts
+          articles: newArticles
         });
 
         this.setState(newState);
@@ -51,7 +50,7 @@ class App extends Component {
           <Route
             exact
             path="/articles"
-            render={props => <ArticleList {...props} contacts={this.state.contacts} />}
+            render={props => <ArticleList {...props} articles={this.state.articles} />}
           />
           <Route
             path="/about"
@@ -61,6 +60,7 @@ class App extends Component {
             path="/glossaire"
             render={props => <Glossaire {...props} />}/>
         </>
+        <Footer />
       </Router>
 
       </div>
