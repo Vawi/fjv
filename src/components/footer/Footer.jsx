@@ -1,10 +1,10 @@
 import React from "react";
 import { Col, Row } from 'react-bootstrap';
+import './Footer.css';
 
 function Footer() {
     return (
-        <footer className="footer">
-            <Row>
+            <Row className="footer">
                 <Col lg={2}>
                 <div className="share">
                     <a href="https://www.linkedin.com/in/valentin-winnen-239668106/"><i title="Linkedin !" className="nes-icon linkedin"></i></a>
@@ -12,11 +12,12 @@ function Footer() {
                 </div>
                 </Col>
                 <Col lg={8}>
+                    <h5>I AM THE FOOTER</h5>
                 </Col>
                 <Col lg={2}>
+                    Contact
                 </Col>
             </Row>
-        </footer>
     );
 }
 

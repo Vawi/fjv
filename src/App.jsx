@@ -16,7 +16,6 @@ class App extends Component {
 
   state = {
     articles: [],
-    id: 0
   };
 
   componentDidMount() {
@@ -43,11 +42,6 @@ class App extends Component {
       .catch(error => console.log(error));
   }
 
-  changeId(articleId){
-    console.log("ID =" + articleId)
-    this.setState({id: articleId})
-  }
-
 
   render() {
     return (
@@ -63,11 +57,11 @@ class App extends Component {
           <Route
             exact
             path="/articles"
-            render={props => <ArticleList {...props} articles={this.state.articles} changeIdCB={this.changeId.bind(this)} />}
+            render={props => <ArticleList {...props} articles={this.state.articles} />}
           />
           <Route
-            path={'/article/' + this.state.articles.id}
-            render={props => <Article {...props} articles={this.state.articles} id={this.state.articles.id}/>}
+            path={'/article/:id'}
+            render={props => <Article {...props} articles={this.state.articles}/>}
           />
           <Route
             path="/about"
@@ -77,10 +71,9 @@ class App extends Component {
             path="/glossaire"
             render={props => <Glossaire {...props} />}
           />
-          <Footer />
         </>
       </Router>
-
+      <Footer/>
       </div>
     )
   }
