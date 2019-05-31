@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
 import './App.css';
 import ArticleList from './components/articleList/ArticleList';
+import Article from './components/article/Article';
 import About from './components/about/About'
 import Glossaire from './components/glossaire/Glossaire'
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
+import Home from './components/home/Home';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import axios from 'axios';
 
@@ -49,6 +51,11 @@ class App extends Component {
           <Header />
           <Route
             exact
+            path="/"
+            render={props => <Home {...props} />}
+          />
+          <Route
+            exact
             path="/articles"
             render={props => <ArticleList {...props} articles={this.state.articles} />}
           />
@@ -58,9 +65,14 @@ class App extends Component {
           />
           <Route
             path="/glossaire"
-            render={props => <Glossaire {...props} />}/>
+            render={props => <Glossaire {...props} />}
+          />
+          <Route
+            path="/article/:id"
+            render={props => <Article {...props} />}
+          />
+          <Footer />
         </>
-        <Footer />
       </Router>
 
       </div>

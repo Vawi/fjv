@@ -1,3 +1,8 @@
 .articleList {
     padding: 60px;
 }
+
+Card {
+    padding: 60px;
+    margin: 60px;
+}
