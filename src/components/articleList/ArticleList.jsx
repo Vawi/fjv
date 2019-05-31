@@ -12,12 +12,12 @@ function ArticleList(props) {
             <CardDeck>
             <Card as={Link} to={"article/" + art.id} style={{ width: '18rem' }}>
             <Card.Body>
-              <Card.Title>{art.titre}</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">{art.auteur}</Card.Subtitle>
-              <Card.Text>
+              <Card.Title style={{ color: 'black' }}>{art.titre}</Card.Title>
+              <Card.Subtitle className="mb-2 text-muted" style={{ color: 'black' }}>{art.auteur}</Card.Subtitle>
+              <Card.Text style={{ color: 'black' }}>
                 {art.description}
               </Card.Text>
-              <Card.Subtitle >{art.dateEcriture}</Card.Subtitle>
+              <Card.Subtitle style={{ color: 'black' }}>{art.dateEcriture}</Card.Subtitle>
             </Card.Body>
           </Card>  
           </CardDeck>     

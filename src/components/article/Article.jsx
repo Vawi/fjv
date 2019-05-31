@@ -1,6 +1,7 @@
 import React, { Component} from "react";
 import "./Article.css";
 import PropTypes from "prop-types";
+import { Col } from "react-bootstrap";
 
 class Article extends Component {
 
@@ -32,18 +33,27 @@ class Article extends Component {
         });
         console.log(id);
         return (
-            <div className="article">
-                <h1>{article[0].titre}</h1>
+            <div>
+                <Col col={2}>
+                </Col>
+                <Col col={8}>
                 <div className="row">
-                    <div>
+                    <div className="article">
                        <ul>
-                           <li><strong>Titre</strong>: {article[0].titre}</li>
-                           <li><strong>Description</strong>: {article[0].description}</li>
-                           <li><strong>Texte</strong>: {article[0].texte}</li>
-                           <li><strong>Auteur</strong>: {article[0].auteur}</li>
+                           <li>{article[0].titre}</li>
+                           <br/>
+                           <li>{article[0].auteur}</li>
+                           <br/>
+                           <li>{article[0].description}</li>
+                           <br/>
+                           <li> {article[0].texte}</li>
+                           <br/>
                        </ul>
                     </div>
                 </div>
+                </Col>
+                <Col col={2}>
+                </Col>
             </div>
         );
     }
