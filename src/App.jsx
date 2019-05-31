@@ -15,7 +15,8 @@ import axios from 'axios';
 class App extends Component {
 
   state = {
-    articles: []
+    articles: [],
+    id: 0
   };
 
   componentDidMount() {
@@ -42,6 +43,11 @@ class App extends Component {
       .catch(error => console.log(error));
   }
 
+  changeId(articleId){
+    console.log("ID =" + articleId)
+    this.setState({id: articleId})
+  }
+
 
   render() {
     return (
@@ -57,7 +63,11 @@ class App extends Component {
           <Route
             exact
             path="/articles"
-            render={props => <ArticleList {...props} articles={this.state.articles} />}
+            render={props => <ArticleList {...props} articles={this.state.articles} changeIdCB={this.changeId.bind(this)} />}
+          />
+          <Route
+            path={'/article/' + this.state.articles.id}
+            render={props => <Article {...props} articles={this.state.articles} id={this.state.articles.id}/>}
           />
           <Route
             path="/about"
@@ -66,10 +76,6 @@ class App extends Component {
           <Route
             path="/glossaire"
             render={props => <Glossaire {...props} />}
-          />
-          <Route
-            path="/article/:id"
-            render={props => <Article {...props} />}
           />
           <Footer />
         </>

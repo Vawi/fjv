@@ -1,13 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./ArticleList.css";
-import { Card, CardDeck } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 
 function ArticleList(props) {
 
     return (
         <div className="articleList">
-          <CardDeck>
             {props.articles.map((art) => 
             <>
               <Card style={{ width: '18rem' }}>
@@ -18,19 +17,19 @@ function ArticleList(props) {
                   {art.description}
                 </Card.Text>
                 <Card.Subtitle className="mb-2 text-muted">{art.dateEcriture}</Card.Subtitle>
-                <Card.Link href="/article/:id">READ</Card.Link>
+                <Card.Link href={'/article/' + art.id} >READ</Card.Link>
               </Card.Body>
             </Card>
             <br />
             </>
               )}
-              </CardDeck>
         </div>
     );
 }
 
 ArticleList.propTypes = {
-    articles: PropTypes.array.isRequired
+    articles: PropTypes.array.isRequired,
+    changeIdCB: PropTypes.func.isRequired
 };
   
 export default ArticleList;

@@ -8,7 +8,7 @@ function About(props) {
         <Container className="about">
             <Row className="about-content">
                 <Col></Col>
-                <Col xs={6}>
+                <Col xs={12}>
                     <h2> Qui suis-je ? </h2>
                         <p> Cette section contient un glossaire
                         des termes utilisés et quelques fichier audio

@@ -3,8 +3,9 @@
 }
 
 .content {
-    padding: 60px;
-    border: solid 1px black;
+    padding: 10px;
+    border: solid 0.5px grey;
+    border-radius: 25px;
     margin: 20px;
     box-shadow: 5px 10px #888888;
 }
