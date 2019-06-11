@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
 import './App.css';
-import ArticleList from './components/articleList/ArticleList';
-import Article from './components/article/Article';
-import About from './components/about/About'
-import Glossaire from './components/glossaire/Glossaire'
-import Header from './components/header/Header';
-import Footer from './components/footer/Footer';
-import Home from './components/home/Home';
+import ArticleList from './components/ArticleList';
+import Article from './components/Article';
+import About from './components/About'
+import Glossaire from './components/Glossaire'
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Home from './components/Home';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import axios from 'axios';
 
 
 
@@ -18,32 +17,12 @@ class App extends Component {
     articles: [],
   };
 
-  componentDidMount() {
-    axios
-      .get("http://localhost:9001/api/Articles/All")
-      .then(response => {
-        const newArticles = response.data.map(c => {
-          return {
-            id: c.id,
-            auteur: c.auteur,
-            titre: c.titre,
-            description: c.description,
-            texte: c.texte,
-            dateEcriture: c.dateEcriture,
-          };
-        });
-
-        const newState = Object.assign({}, this.state, {
-          articles: newArticles
-        });
-
-        this.setState(newState);
-      })
-      .catch(error => console.log(error));
+  getArticle() {
+    return this.state.articles;
   }
 
-
   render() {
+    localStorage.setItem('articles', this.state.articles);
     return (
       <div className="App">
         <Router>
@@ -61,7 +40,7 @@ class App extends Component {
           />
           <Route
             path={'/article/:id'}
-            render={props => <Article {...props} articles={this.state.articles}/>}
+            render={props => <Article {...props} articles={this.state.articles} />}
           />
           <Route
             path="/about"

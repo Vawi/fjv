@@ -1,5 +1,5 @@
 import React from "react";
-import "./Glossaire.css";
+import "./styles/Glossaire.css";
 import { Col, Row, Container } from 'react-bootstrap';
 
 function Glossaire() {

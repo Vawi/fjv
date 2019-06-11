@@ -1,11 +1,13 @@
 .about {
     padding: 60px;
+    margin-top: 15%;
+    margin-bottom: 19%;
 }
 
 .about-content {
     padding: 60px;
-    border: solid 0.5px grey;
+    border: solid 0.5px black;
     border-radius: 25px;
     margin: 20px;
-    box-shadow: 5px 10px #888888;
+    box-shadow: 5px 10px black;
 }

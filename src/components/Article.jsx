@@ -1,5 +1,5 @@
 import React, { Component} from "react";
-import "./Article.css";
+import "./styles/Article.css";
 import PropTypes from "prop-types";
 import { Col } from "react-bootstrap";
 
@@ -8,35 +8,25 @@ class Article extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            id: 0 };
+            id: 0,
+            articles: [] };
       }
-
-    componentWillMount() {
-        this.handleChange();
-    }
-
-    handleChange() {        
-        this.setState({
-            id : this.props.match.params.id
-        })
-    }
 
     
     render(){
         const id = this.props.match.params.id;
-        console.log("Map en cours")
-        console.log(this.props.articles);
         const article = this.props.articles.filter(art => {
-            if(art.id == id) {
+            if(art.id === id) {
                 return art;
+            } else {
+                return undefined
             }
         });
-        console.log(id);
         return (
             <div>
-                <Col col={2}>
+                <Col xs={2}>
                 </Col>
-                <Col col={8}>
+                <Col xs={8}>
                 <div className="row">
                     <div className="article">
                        <ul>
@@ -52,7 +42,7 @@ class Article extends Component {
                     </div>
                 </div>
                 </Col>
-                <Col col={2}>
+                <Col xs={2}>
                 </Col>
             </div>
         );

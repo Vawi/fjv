@@ -4,8 +4,8 @@
 
 .content {
     padding: 10px;
-    border: solid 0.5px grey;
+    border: solid 0.5px black;
     border-radius: 25px;
     margin: 20px;
-    box-shadow: 5px 10px #888888;
+    box-shadow: 5px 10px black;
 }
