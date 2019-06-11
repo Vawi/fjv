@@ -53,6 +53,7 @@ class App extends Component {
         </>
       </Router>
       <Footer/>
+      <canvas className="background"></canvas>
       </div>
     )
   }

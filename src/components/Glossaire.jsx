@@ -9,11 +9,11 @@ function Glossaire() {
                 <Col></Col>
                 <Col xs={6}>
                     <h2> glossaire </h2>
-                    <div class="nes-container">
-                        <p> Cette section contient un glossaire
-                        des termes utilisés et quelques fichier audio
-                        pour mettre en avant le contenu de certain article</p>
-                    </div>
+                    
+                    <p> Cette section contient un glossaire
+                    des termes utilisés et quelques fichier audio
+                    pour mettre en avant le contenu de certain article</p>
+                    
                 </Col>
                 <Col></Col>
             </Row>
@@ -24,9 +24,9 @@ function Glossaire() {
                     <iframe 
                         title="8-BIT"
                         src="https://www.youtube.com/embed/W0WUEx1kpcE"
-                        frameborder="0"
+                        frameBorder="0"
                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
+                        allowFullScreen>
                     </iframe>   
                 </Col>
                 <Col>
@@ -40,9 +40,9 @@ function Glossaire() {
                     <iframe 
                         title="16-BIT"
                         src="https://www.youtube.com/embed/BStjuHfP238"
-                        frameborder="0"
+                        frameBorder="0"
                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
+                        allowFullScreen>
                     </iframe>   
                 </Col>
                 <Col>
